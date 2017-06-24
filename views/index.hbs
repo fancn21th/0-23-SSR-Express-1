@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSR Express 1</title>
+</head>
+<body>
+
+<h1>Powered by Handlebars</h1>
+<ul>
+  {{#each users as |user|}}
+    <li><a href="/{{user.username}}">{{user.name.first}} {{user.name.last}}</a></li>
+  {{/each}}
+</ul>
+
+</body>
+</html>
