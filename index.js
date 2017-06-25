@@ -5,6 +5,7 @@ const engines = require('consolidate')
 app.engine('hbs', engines.handlebars)
 app.set('views', './views')
 app.set('view engine', 'hbs')
+app.use('/profilepics', express.static('images'))
 
 const users = [
   {
@@ -33,8 +34,9 @@ app.get('/', (req, res) => {
   res.render('index', { users })
 })
 
-app.get('/foo', (req, res) => {
-  res.send('Hello, Foo!!!!')
+app.get('/:username', (req, res) => {
+  const username = req.params.username
+  res.render('user', { username })
 })
 
 const server = app.listen(
